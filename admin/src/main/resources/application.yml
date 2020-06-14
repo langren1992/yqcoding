@@ -1,2 +1,9 @@
 server:
   port: 1700
+  servlet:
+    context-path: /yqcoding
+spring:
+  application:
+    name: yqcoding
+  profiles:
+    active: dev

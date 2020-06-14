@@ -1,0 +1,22 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /yqcoding
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual
+    # 开启到达 Broker 确认 开启
+    publisher-confirms: true
+    # 开启 return consumer 消费完成确认
+    publisher-returns: true
+    template:
+      mandatory: true
+yqcoding.mq:
+  definitions:
+    - com.anserx.yqcoding.mq.enums.QueueDefinition1Enum
+    - com.anserx.yqcoding.mq.enums.QueueDefinitionEnum
