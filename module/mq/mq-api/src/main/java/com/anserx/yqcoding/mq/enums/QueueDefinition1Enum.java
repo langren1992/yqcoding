@@ -1,10 +1,8 @@
 package com.anserx.yqcoding.mq.enums;
 
-import com.anserx.yqcoding.mq.bean.BaseQueueDefinition;
+import com.anserx.yqcoding.mq.bean.*;
 import com.anserx.yqcoding.mq.bean.QueueDefinition;
 import com.anserx.yqcoding.mq.bo.TestPerson;
-import com.anserx.yqcoding.mq.consumer.TestConsumer;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,19 +13,19 @@ import java.util.List;
  * @author zengrui
  * @date 2020-6-14
  */
-public enum QueueDefinitionEnum implements BaseQueueDefinition {
+public enum QueueDefinition1Enum implements BaseQueueDefinition {
     /**
      * 测试1号队列
      */
-    A(new QueueDefinition("11111",TestConsumer.class, TestPerson.class)),
+    AAA(new QueueDefinition("AAA","testConsumer", TestPerson.class)),
     /**
      * 测试2号队列
      */
-    B(new QueueDefinition("22221",TestConsumer.class,TestPerson.class));
+    BBB(new QueueDefinition("BBB","testConsumer",TestPerson.class));
 
     private QueueDefinition queueDefinition;
 
-    QueueDefinitionEnum(QueueDefinition queueDefinition) {
+    QueueDefinition1Enum(QueueDefinition queueDefinition) {
         this.queueDefinition = queueDefinition;
     }
 
@@ -38,7 +36,7 @@ public enum QueueDefinitionEnum implements BaseQueueDefinition {
     @Override
     public List<QueueDefinition> getAllQueueDefinition(){
         List<QueueDefinition> queueDefinitions = new ArrayList<>();
-        for (QueueDefinitionEnum value : QueueDefinitionEnum.values()) {
+        for (QueueDefinition1Enum value : QueueDefinition1Enum.values()) {
             queueDefinitions.add(value.queueDefinition);
         }
         return queueDefinitions;

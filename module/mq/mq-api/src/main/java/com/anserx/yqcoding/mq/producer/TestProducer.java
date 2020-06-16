@@ -1,8 +1,8 @@
 package com.anserx.yqcoding.mq.producer;
 
+import com.anserx.yqcoding.mq.core.ProducerService;
 import com.anserx.yqcoding.mq.enums.QueueDefinitionEnum;
 import com.anserx.yqcoding.mq.bo.TestPerson;
-import com.anserx.yqcoding.mq.core.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

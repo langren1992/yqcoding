@@ -32,7 +32,7 @@
         </dependency>
         <dependency>
             <groupId>com.anserx.yqcoding</groupId>
-            <artifactId>mq</artifactId>
+            <artifactId>mq-server</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -17,10 +17,13 @@
     <modules>
         <module>admin</module>
         <module>common</module>
-        <module>mq</module>
+        <module>module</module>
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <yqcoding.version>1.0-SNAPSHOT</yqcoding.version>
         <spring.cloud.version>Finchley.SR2</spring.cloud.version>
     </properties>
@@ -46,7 +49,7 @@
             </dependency>
             <dependency>
                 <groupId>com.anserx.yqcoding</groupId>
-                <artifactId>mq</artifactId>
+                <artifactId>mq-server</artifactId>
                 <version>${yqcoding.version}</version>
             </dependency>
         </dependencies>

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface BaseQueueDefinition {
 
-    public List<QueueDefinition> getAllQueueDefinition();
+    List<QueueDefinition> getAllQueueDefinition();
 }

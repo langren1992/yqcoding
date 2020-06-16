@@ -27,7 +27,7 @@ public class DefaultBaseConsumer {
             QueueDefinition queueDefinition = RabbitmqConfig.getQueueDefinition(consumerQueue);
             String messageBody = new String(message.getBody(), "UTF-8");
             Gson gson = new Gson();
-            BaseConsumer baseConsumer = (BaseConsumer) applicationContext.getBean(queueDefinition.getConsumerClass());
+            BaseConsumer baseConsumer = (BaseConsumer) applicationContext.getBean(queueDefinition.getConsumerBeanName());
             baseConsumer.handle(gson.fromJson(messageBody, queueDefinition.getBoClass()));
         } catch (RuntimeException exception){
             exception.printStackTrace();
