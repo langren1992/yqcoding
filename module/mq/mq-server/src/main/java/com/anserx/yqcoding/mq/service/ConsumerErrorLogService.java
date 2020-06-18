@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author zengrui
- * @since 2020-06-18
+ * @since 2020-06-19
  */
-public interface IConsumerErrorLogService extends IService<ConsumerErrorLog> {
+public interface ConsumerErrorLogService extends IService<ConsumerErrorLog> {
 
 }

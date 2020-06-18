@@ -2,7 +2,7 @@ package com.anserx.yqcoding.mq.service.impl;
 
 import com.anserx.yqcoding.mq.entity.ConsumerLog;
 import com.anserx.yqcoding.mq.mapper.ConsumerLogMapper;
-import com.anserx.yqcoding.mq.service.IConsumerLogService;
+import com.anserx.yqcoding.mq.service.ConsumerLogService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author zengrui
- * @since 2020-06-18
+ * @since 2020-06-19
  */
 @Service
-public class ConsumerLogServiceImpl extends ServiceImpl<ConsumerLogMapper, ConsumerLog> implements IConsumerLogService {
+public class ConsumerLogServiceImpl extends ServiceImpl<ConsumerLogMapper, ConsumerLog> implements ConsumerLogService {
 
 }

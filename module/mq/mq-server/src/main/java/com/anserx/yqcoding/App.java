@@ -36,6 +36,7 @@ public class App {
         gc.setIdType(IdType.ASSIGN_ID);
         gc.setOpen(false);
         gc.setActiveRecord(false);
+        gc.setServiceName("%sService");
         /* 自定义文件命名，注意 %s 会自动填充表实体属性！ */
         // gc.setMapperName("%sDao");
         // gc.setXmlName("%sDao");

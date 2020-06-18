@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zengrui
- * @since 2020-06-18
+ * @since 2020-06-19
  */
 public interface ProducerLogMapper extends BaseMapper<ProducerLog> {
 

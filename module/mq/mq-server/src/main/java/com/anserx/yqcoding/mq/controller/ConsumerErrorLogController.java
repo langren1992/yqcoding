@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author zengrui
- * @since 2020-06-18
+ * @since 2020-06-19
  */
 @RestController
 @RequestMapping("/mq/consumerErrorLog")
