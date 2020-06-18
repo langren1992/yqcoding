@@ -16,7 +16,15 @@ spring:
     publisher-returns: true
     template:
       mandatory: true
-yqcoding.mq:
-  definitions:
-    - com.anserx.yqcoding.mq.enums.QueueDefinition1Enum
-    - com.anserx.yqcoding.mq.enums.QueueDefinitionEnum
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yqcoding?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true

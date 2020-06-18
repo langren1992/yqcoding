@@ -7,3 +7,11 @@ spring:
     name: yqcoding
   profiles:
     active: dev
+# mybatis-plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:com/anserx/yqcoding/**/*.xml
+# 队列定义
+yqcoding.mq:
+  definitions:
+    - com.anserx.yqcoding.mq.enums.QueueDefinition1Enum
+    - com.anserx.yqcoding.mq.enums.QueueDefinitionEnum
