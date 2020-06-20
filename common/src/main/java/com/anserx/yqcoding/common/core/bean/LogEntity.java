@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.bean;
+package com.anserx.yqcoding.common.core.bean;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

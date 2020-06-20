@@ -1,9 +1,10 @@
-package com.anserx.yqcoding.mq.entity;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.anserx.yqcoding.common.core.bean.LogEntity;
+package com.anserx.yqcoding.mq.dto;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+
 /**
  * <p>
  * 队列消费日志 
@@ -13,10 +14,8 @@ import lombok.experimental.Accessors;
  * @since 2020-06-19
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("mq_consumer_log")
-public class ConsumerLog extends LogEntity{
+public class ConsumerLogDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

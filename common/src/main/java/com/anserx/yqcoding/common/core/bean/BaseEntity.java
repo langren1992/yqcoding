@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.bean;
+package com.anserx.yqcoding.common.core.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

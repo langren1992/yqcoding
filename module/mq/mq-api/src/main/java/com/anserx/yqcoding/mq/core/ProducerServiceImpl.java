@@ -2,7 +2,7 @@ package com.anserx.yqcoding.mq.core;
 
 import com.anserx.yqcoding.mq.bean.BaseMessage;
 import com.anserx.yqcoding.mq.bean.QueueDefinition;
-import com.anserx.yqcoding.mq.entity.ProducerLog;
+import com.anserx.yqcoding.mq.dto.ProducerLogDto;
 import com.anserx.yqcoding.mq.enums.QueueDefinitionEnum;
 import com.anserx.yqcoding.mq.service.ProducerLogService;
 import com.google.gson.Gson;
@@ -29,13 +29,13 @@ public class ProducerServiceImpl<D>implements ProducerService<D> {
         }
         Gson gson = new Gson();
         String param = gson.toJson(d);
-        ProducerLog log = new ProducerLog()
+        ProducerLogDto log = new ProducerLogDto()
             .setMessageId(d.getMessageId())
             .setAck(false)
             .setRequestParam(queueDefinitionEnum.getClass().getName()+"."+queueDefinitionEnum.name())
             .setQueueInfo(param);
         log.setCreator(0L).setCreateTime(LocalDateTime.now());
-        producerLogService.save(log);
+        producerLogService.insert(log);
         if (ExchangeTypes.DIRECT.equals(definition.getType())){
             rabbitTemplate.convertAndSend(definition.getQueue(),definition.getQueue(),param);
         }

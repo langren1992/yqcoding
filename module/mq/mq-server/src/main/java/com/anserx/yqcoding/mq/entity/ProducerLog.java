@@ -1,6 +1,6 @@
 package com.anserx.yqcoding.mq.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.anserx.yqcoding.bean.LogEntity;
+import com.anserx.yqcoding.common.core.bean.LogEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

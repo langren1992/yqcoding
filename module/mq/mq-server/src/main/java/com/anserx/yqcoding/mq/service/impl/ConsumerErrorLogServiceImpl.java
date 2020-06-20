@@ -1,9 +1,11 @@
 package com.anserx.yqcoding.mq.service.impl;
 
+import com.anserx.yqcoding.common.core.service.impl.BaserServiceImpl;
+import com.anserx.yqcoding.mq.dto.ConsumerErrorLogDto;
 import com.anserx.yqcoding.mq.entity.ConsumerErrorLog;
 import com.anserx.yqcoding.mq.mapper.ConsumerErrorLogMapper;
 import com.anserx.yqcoding.mq.service.ConsumerErrorLogService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +17,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-19
  */
 @Service
-public class ConsumerErrorLogServiceImpl extends ServiceImpl<ConsumerErrorLogMapper, ConsumerErrorLog> implements ConsumerErrorLogService {
+public class ConsumerErrorLogServiceImpl extends BaserServiceImpl<ConsumerErrorLogMapper, ConsumerErrorLog, ConsumerErrorLogDto> implements ConsumerErrorLogService<ConsumerErrorLogDto>, IService<ConsumerErrorLog> {
 
 }

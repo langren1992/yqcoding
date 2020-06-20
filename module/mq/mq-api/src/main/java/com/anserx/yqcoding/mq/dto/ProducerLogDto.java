@@ -1,25 +1,28 @@
-package com.anserx.yqcoding.mq.entity;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.anserx.yqcoding.common.core.bean.LogEntity;
+package com.anserx.yqcoding.mq.dto;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
  * <p>
- * 队列消费日志 
+ * 队列生产日志 
  * </p>
  *
  * @author zengrui
  * @since 2020-06-19
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("mq_consumer_log")
-public class ConsumerLog extends LogEntity{
+public class ProducerLogDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    /**
+     * ID
+     */
+    private Long id;
     /**
      * 消息ID
      */
@@ -35,10 +38,25 @@ public class ConsumerLog extends LogEntity{
      */
     private String requestParam;
 
+    /**
+     * 是否确认
+     */
+    private Boolean ack;
+    /**
+     * 创建人
+     */
+    private Long creator;
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+
     public static final String MESSAGE_ID = "message_id";
 
     public static final String QUEUE_INFO = "queue_info";
 
     public static final String REQUEST_PARAM = "request_param";
+
+    public static final String ACK = "ack";
 
 }
