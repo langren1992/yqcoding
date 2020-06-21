@@ -30,6 +30,8 @@ public class DefaultConfirmCallback implements RabbitTemplate.ConfirmCallback{
         System.out.println("ack: " + ack);
         if(!ack){
             System.out.println("异常处理....");
+        } else {
+
         }
     }
 }
