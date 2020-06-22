@@ -22,13 +22,9 @@ public class QueueDefinition {
 
     private String consumerBeanName;
 
-    private Class<?> boClass;
-
-    public QueueDefinition(String queue, String consumerBeanName,Class<?> boClass) {
+    public QueueDefinition(String queue, String consumerBeanName) {
         this.queue = queue;
         this.type = ExchangeTypes.DIRECT;
         this.consumerBeanName = consumerBeanName;
-        this.boClass = boClass;
-
     }
 }

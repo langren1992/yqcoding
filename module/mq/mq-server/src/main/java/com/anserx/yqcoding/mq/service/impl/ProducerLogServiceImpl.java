@@ -21,6 +21,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-19
  */
 @Service
-public class ProducerLogServiceImpl extends BaserServiceImpl<ProducerLogMapper, ProducerLog, ProducerLogDto> implements ProducerLogService<ProducerLogDto>, IService<ProducerLog> {
+public class ProducerLogServiceImpl extends BaserServiceImpl<ProducerLogMapper, ProducerLog, ProducerLogDto> implements ProducerLogService, IService<ProducerLog> {
 
 }

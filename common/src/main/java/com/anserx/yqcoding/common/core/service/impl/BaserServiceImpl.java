@@ -32,6 +32,19 @@ public class BaserServiceImpl<M extends BaseMapper<E>,E,D> extends ServiceImpl<M
     }
 
     @Override
+    public D get(Map<String, Object> params) {
+        if (CollectionUtil.isEmpty(params)){
+            log.error("请求参数为空");
+            return null;
+        }
+        QueryWrapper<E> queryWrapper = new QueryWrapper<>();
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            queryWrapper.eq(entry.getKey(),entry.getValue());
+        }
+        return ConvertUtils.sourceToTarget(this.baseDao.selectOne(queryWrapper),dtoClass);
+    }
+
+    @Override
     public boolean exits(Map<String, Object> params) {
         if (CollectionUtil.isEmpty(params)){
             log.error("请求参数为空");

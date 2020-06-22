@@ -28,6 +28,8 @@ public interface BaserService<D> {
      **/
     D get(Long id);
 
+    D get(Map<String,Object> params);
+
     boolean exits(Map<String,Object> params);
 
     List<D> list(List<Long> ids);

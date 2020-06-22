@@ -1,6 +1,7 @@
 package com.anserx.yqcoding.admin.controller;
 
 import com.anserx.yqcoding.admin.dto.StudentDto;
+import com.anserx.yqcoding.mq.producer.TestProducer;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +13,12 @@ import java.util.List;
 public class TestConttoller {
 
     @Autowired
-//    private TestProducer testProducer;
+    private TestProducer testProducer;
+
 
     @GetMapping("/testGet")
     public String testGet(){
-//        testProducer.send();
+        testProducer.send();
         return "111111";
     }
 

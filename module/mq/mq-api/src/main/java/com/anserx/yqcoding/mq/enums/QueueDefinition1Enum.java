@@ -17,11 +17,11 @@ public enum QueueDefinition1Enum implements BaseQueueDefinition {
     /**
      * 测试1号队列
      */
-    AAA(new QueueDefinition("AAA","testConsumer", TestPerson.class)),
+    AAA(new QueueDefinition("AAA","testConsumer")),
     /**
      * 测试2号队列
      */
-    BBB(new QueueDefinition("BBB","testConsumer",TestPerson.class));
+    BBB(new QueueDefinition("BBB","testConsumer"));
 
     private QueueDefinition queueDefinition;
 

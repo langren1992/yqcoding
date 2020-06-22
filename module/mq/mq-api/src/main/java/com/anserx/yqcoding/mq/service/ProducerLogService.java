@@ -12,6 +12,6 @@ import com.anserx.yqcoding.mq.dto.ProducerLogDto;
  * @author zengrui
  * @since 2020-06-19
  */
-public interface ProducerLogService<ProducerLogDto> extends BaserService<ProducerLogDto> {
+public interface ProducerLogService extends BaserService<ProducerLogDto> {
 
 }
