@@ -1,13 +1,18 @@
 package com.anserx.yqcoding.common.core.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.anserx.yqcoding.common.core.service.BaserService;
-import com.anserx.yqcoding.common.core.util.ConvertUtils;
+import com.anserx.yqcoding.common.util.ConvertUtils;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 
+@Slf4j
 public class BaserServiceImpl<M extends BaseMapper<E>,E,D> extends ServiceImpl<M,E> implements BaserService<D> {
 
     private Class<E> entityClass;
@@ -24,6 +29,19 @@ public class BaserServiceImpl<M extends BaseMapper<E>,E,D> extends ServiceImpl<M
     @Override
     public D get(Long id) {
         return ConvertUtils.sourceToTarget(this.getById(id),dtoClass);
+    }
+
+    @Override
+    public boolean exits(Map<String, Object> params) {
+        if (CollectionUtil.isEmpty(params)){
+            log.error("请求参数为空");
+            return false;
+        }
+        QueryWrapper<E> queryWrapper = new QueryWrapper<>();
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            queryWrapper.eq(entry.getKey(),entry.getValue());
+        }
+        return ObjectUtil.isNotNull(this.baseDao.selectOne(queryWrapper));
     }
 
     @Override

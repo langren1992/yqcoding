@@ -1,6 +1,6 @@
 package com.anserx.yqcoding;
 
-import com.anserx.yqcoding.common.core.bean.LogEntity;
+import com.anserx.yqcoding.common.bean.LogEntity;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;

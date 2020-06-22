@@ -1,13 +1,7 @@
 package com.anserx.yqcoding.common.core.service;
 
-import com.anserx.yqcoding.common.core.util.ConvertUtils;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
-
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -33,6 +27,8 @@ public interface BaserService<D> {
      * @return D DTO实体对象
      **/
     D get(Long id);
+
+    boolean exits(Map<String,Object> params);
 
     List<D> list(List<Long> ids);
 

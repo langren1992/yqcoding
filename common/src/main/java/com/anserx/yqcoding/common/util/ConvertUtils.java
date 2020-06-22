@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.common.core.util;
+package com.anserx.yqcoding.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

@@ -1,6 +1,6 @@
-package com.anserx.yqcoding.common.core.enums;
+package com.anserx.yqcoding.common.enums;
 
-import com.anserx.yqcoding.common.core.util.BaseEnum;
+import com.anserx.yqcoding.common.util.BaseEnum;
 
 /**
  * 

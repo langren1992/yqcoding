@@ -1,6 +1,6 @@
-package com.anserx.yqcoding.common.core.util;
+package com.anserx.yqcoding.common.util;
 
-import com.anserx.yqcoding.common.core.enums.CommonErrorEnum;
+import com.anserx.yqcoding.common.enums.CommonErrorEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
