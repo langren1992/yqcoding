@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.common.core.util;
+package com.anserx.yqcoding.common.util;
 
 /**
  *

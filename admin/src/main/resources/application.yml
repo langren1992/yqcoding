@@ -7,6 +7,11 @@ spring:
     name: yqcoding
   profiles:
     active: dev
+  http:
+    converters:
+      preferred-json-mapper: gson
+    encoding:
+      charset: UTF-8
 # mybatis-plus 配置
 mybatis-plus:
   mapper-locations: classpath*:com/anserx/yqcoding/**/*.xml

@@ -1,7 +1,8 @@
-package com.anserx.yqcoding.mq.core;
+package com.anserx.yqcoding.mq.core.impl;
 
 import com.anserx.yqcoding.mq.bean.BaseMessage;
 import com.anserx.yqcoding.mq.bean.QueueDefinition;
+import com.anserx.yqcoding.mq.core.ProducerService;
 import com.anserx.yqcoding.mq.dto.ProducerLogDto;
 import com.anserx.yqcoding.mq.enums.QueueDefinitionEnum;
 import com.anserx.yqcoding.mq.service.ProducerLogService;

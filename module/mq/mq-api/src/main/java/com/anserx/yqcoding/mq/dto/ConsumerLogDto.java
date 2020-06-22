@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -33,6 +34,16 @@ public class ConsumerLogDto implements Serializable {
      * 请求参数
      */
     private String requestParam;
+
+    /**
+     * 创建人
+     */
+    private Long creator;
+
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
 
     public static final String MESSAGE_ID = "message_id";
 
