@@ -35,24 +35,20 @@ public class DefaultConfirmCallback implements RabbitTemplate.ConfirmCallback{
     }
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
-        System.out.println("correlationData: " + correlationData);
-        System.out.println("cause: " + cause);
-        System.out.println("ack: " + ack);
-        if(ack){
-            ProducerLogDto logDto = getByMessageId(correlationData.getId());
+        ProducerLogDto logDto = getByMessageId(correlationData.getId());
+        if (ack){
             logDto.setAck(true);
-            producerLogService.update(logDto);
         } else {
-            ProducerLogDto logDto = getByMessageId(correlationData.getId());
 //            logDto.setCause(String.valueOf(cause.getBytes("utf-8")));
-            producerLogService.update(logDto);
+            log.error("队列：{} 消息ID:{} ack失败",logDto.getQueueInfo(),logDto.getMessageId());
         }
+        producerLogService.update(logDto);
     }
 
     private ProducerLogDto getByMessageId(String id){
         Map<String, Object> params = Maps.newHashMap();
-        params.put("message_id",Long.valueOf(id));
-        params.put("ack",false);
+        params.put(ProducerLogDto.MESSAGE_ID,Long.valueOf(id));
+        params.put(ProducerLogDto.ACK,false);
         return producerLogService.get(params);
     }
 }

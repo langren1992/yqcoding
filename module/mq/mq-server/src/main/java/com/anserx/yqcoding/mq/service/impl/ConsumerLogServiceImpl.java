@@ -17,6 +17,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-06-19
  */
 @Service
-public class ConsumerLogServiceImpl extends BaserServiceImpl<ConsumerLogMapper, ConsumerLog, ConsumerLogDto> implements ConsumerLogService<ConsumerLogDto>, IService<ConsumerLog> {
+public class ConsumerLogServiceImpl extends BaserServiceImpl<ConsumerLogMapper, ConsumerLog, ConsumerLogDto> implements ConsumerLogService, IService<ConsumerLog> {
 
 }

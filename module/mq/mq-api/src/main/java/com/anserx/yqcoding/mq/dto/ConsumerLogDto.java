@@ -21,6 +21,11 @@ public class ConsumerLogDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * ID
+     */
+    private Long id;
+
+    /**
      * 消息ID
      */
     private Long messageId;
@@ -45,10 +50,16 @@ public class ConsumerLogDto implements Serializable {
      */
     private LocalDateTime createTime;
 
+    public static final String ID = "id";
+
     public static final String MESSAGE_ID = "message_id";
 
     public static final String QUEUE_INFO = "queue_info";
 
     public static final String REQUEST_PARAM = "request_param";
+
+    public static final String CREATOR = "creator";
+
+    public static final String CREATE_TIME = "create_time";
 
 }

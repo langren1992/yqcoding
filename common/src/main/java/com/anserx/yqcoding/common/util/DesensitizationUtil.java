@@ -1,9 +1,10 @@
 package com.anserx.yqcoding.common.util;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
-public class DesensitizedUtil {
+public class DesensitizationUtil {
 
     /**
      * 【中文姓名】只显示第一个汉字，其他隐藏为2个星号，比如：李**

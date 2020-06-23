@@ -1,6 +1,7 @@
 package com.anserx.yqcoding.mq.service;
 
 import com.anserx.yqcoding.common.core.service.BaserService;
+import com.anserx.yqcoding.mq.dto.ConsumerErrorLogDto;
 
 /**
  * <p>
@@ -10,6 +11,6 @@ import com.anserx.yqcoding.common.core.service.BaserService;
  * @author zengrui
  * @since 2020-06-19
  */
-public interface ConsumerErrorLogService<ConsumerErrorLogDto> extends BaserService<ConsumerErrorLogDto> {
+public interface ConsumerErrorLogService extends BaserService<ConsumerErrorLogDto> {
 
 }

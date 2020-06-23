@@ -51,6 +51,10 @@ public class ProducerLogDto implements Serializable {
      */
     private LocalDateTime createTime;
 
+
+
+    public static final String ID = "id";
+
     public static final String MESSAGE_ID = "message_id";
 
     public static final String QUEUE_INFO = "queue_info";
@@ -58,5 +62,9 @@ public class ProducerLogDto implements Serializable {
     public static final String REQUEST_PARAM = "request_param";
 
     public static final String ACK = "ack";
+
+    public static final String CREATOR = "creator";
+
+    public static final String CREATE_TIME = "create_time";
 
 }
