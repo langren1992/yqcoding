@@ -52,10 +52,9 @@ public class ProducerServiceImpl<D>implements ProducerService<D> {
 
         Map<String, Object> params = Maps.newHashMap();
         params.put(ProducerLogDto.MESSAGE_ID,dto.getMessageId());
-        params.put(ProducerLogDto.ACK,false);
         boolean exits = producerLogService.exits(params);
         if (exits){
-            log.error("{} 消息重复发送",dto.getMessageId());
+            log.error("队列：{} 消息ID:{} 消息重复发送",definition.getQueue(),dto.getMessageId());
             return;
         }
 

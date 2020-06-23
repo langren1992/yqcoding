@@ -1,6 +1,5 @@
 package com.anserx.yqcoding.mq.core;
 
-import com.anserx.yqcoding.common.util.ExceptionUtils;
 import com.anserx.yqcoding.mq.MqConstant;
 import com.anserx.yqcoding.mq.bean.BaseMessage;
 import com.anserx.yqcoding.mq.bean.QueueDefinition;
@@ -15,6 +14,7 @@ import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -42,7 +42,7 @@ public class DefaultBaseConsumer {
     private ConsumerErrorLogService consumerErrorLogService;
 
 
-    @RabbitListener(queues = {"#{rabbitmqConfig.getAllQueue()}"},concurrency = "2",errorHandler = "defaultRabbitListenerErrorHandler")
+    @RabbitListener(queues = {"#{rabbitmqConfig.getAllQueue()}"},concurrency = "2")
     public void consumerMoreQueue(Message message, Channel channel) throws IOException {
         // 获取队列参数
         MessageProperties messageProperties = message.getMessageProperties();
@@ -80,7 +80,7 @@ public class DefaultBaseConsumer {
                     .setMessageId(messageId)
                     .setRequestParam(messageBody)
                     .setQueueInfo(queueDefinitionHeader)
-                    .setFailureReason(ExceptionUtils.getStackTrace(exception.getCause()));
+                    .setFailureReason(ExceptionUtils.getStackTrace(exception.fillInStackTrace()));
             errorLogDto.setCreator(0L).setCreateTime(LocalDateTime.now());
             consumerErrorLogService.insert(errorLogDto);
         } finally {

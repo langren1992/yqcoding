@@ -7,11 +7,6 @@ spring:
     name: yqcoding
   profiles:
     active: dev
-  http:
-    converters:
-      preferred-json-mapper: gson
-    encoding:
-      charset: UTF-8
 # mybatis-plus 配置
 mybatis-plus:
   mapper-locations: classpath*:com/anserx/yqcoding/**/*.xml
@@ -20,3 +15,6 @@ yqcoding.mq:
   definitions:
     - com.anserx.yqcoding.mq.enums.QueueDefinition1Enum
     - com.anserx.yqcoding.mq.enums.QueueDefinitionEnum
+logging:
+  level:
+    com.anserx.yqcoding: debug

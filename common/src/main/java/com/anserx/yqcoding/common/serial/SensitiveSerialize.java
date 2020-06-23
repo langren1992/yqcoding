@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 
-
 import java.io.IOException;
 import java.util.Objects;
 
@@ -22,14 +21,14 @@ import java.util.Objects;
  * @author zengrui
  * @datetime   2020-06-23 17:30
  */
-public class SensitiveInfoSerialize extends JsonSerializer<String> implements ContextualSerializer {
+public class SensitiveSerialize extends JsonSerializer<String> implements ContextualSerializer {
 
     private SensitiveTypeEnum type;
 
-    public SensitiveInfoSerialize() {
+    public SensitiveSerialize() {
     }
 
-    public SensitiveInfoSerialize(final SensitiveTypeEnum type) {
+    public SensitiveSerialize(final SensitiveTypeEnum type) {
         this.type = type;
     }
 
@@ -76,7 +75,7 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements Co
             if (Objects.equals(beanProperty.getType().getRawClass(), String.class)) { // 非 String 类直接跳过
                 Desensitization sensitiveInfo = beanProperty.getAnnotation(Desensitization.class);
                 if (sensitiveInfo != null) { // 如果能得到注解，就将注解的 value 传入 SensitiveInfoSerialize
-                    return new SensitiveInfoSerialize(sensitiveInfo.type());
+                    return new SensitiveSerialize(sensitiveInfo.type());
                 }
             }
             return serializerProvider.findValueSerializer(beanProperty.getType(), beanProperty);

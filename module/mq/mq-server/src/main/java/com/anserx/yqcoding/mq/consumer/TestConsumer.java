@@ -9,6 +9,7 @@ public class TestConsumer extends BaseAbstractConsumer<TestPerson> {
 
     @Override
     public void handle(TestPerson testPerson) {
+        System.out.println( 1/0 );
         System.out.println("testPerson = " + testPerson);
     }
 }

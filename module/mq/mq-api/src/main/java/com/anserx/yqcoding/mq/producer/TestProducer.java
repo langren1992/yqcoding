@@ -13,9 +13,9 @@ public class TestProducer {
     @Autowired
     private ProducerService producerService;
 
-    public void send(){
+    public void send(String id){
         BaseMessage<TestPerson> d = new BaseMessage<>();
-        d.setMessageId(1L);
+        d.setMessageId(Long.parseLong(id));
         d.setData(new TestPerson().setName("1111111").setCode("111111"));
         producerService.producer(QueueDefinitionEnum.A,d);
     }

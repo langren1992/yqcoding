@@ -1,4 +1,5 @@
 //package com.anserx.yqcoding.toolkit;
+//package com.anserx.yqcoding.toolkit;
 //
 //import java.lang.reflect.ParameterizedType;
 //import java.lang.reflect.Type;
