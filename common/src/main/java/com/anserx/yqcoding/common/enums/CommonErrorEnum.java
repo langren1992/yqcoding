@@ -1,7 +1,5 @@
 package com.anserx.yqcoding.common.enums;
 
-import com.anserx.yqcoding.common.util.BaseEnum;
-
 /**
  * 
  * @class CommonErrorEnum
@@ -18,9 +16,31 @@ public enum CommonErrorEnum implements BaseEnum<Integer,String> {
      */
     OK(200, "成功"),
     /**
+     * 400
+     */
+    BED_REQUEST(400,"请求错误"),
+    /**
+     * 400
+     */
+    UNAUTHORIZED(401,"没有权限"),
+    /**
+     * 403
+     */
+    FORBIDDEN(403,"请求拒绝"),
+    /**
+     * 404
+     */
+    NOT_FOUND(404,"资源不存在"),
+    /**
+     * 405
+     */
+    METHOD_NOT_ALLOWED(405, "请求方式错误"),
+    /**
      * 500
      */
-    INTERNAL_SERVER_ERROR(500, "服务异常");
+    INTERNAL_SERVER_ERROR(500, "服务异常")
+    ;
+
 
     private Integer key;
 

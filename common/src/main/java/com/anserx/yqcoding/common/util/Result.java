@@ -48,6 +48,11 @@ public class Result<T> implements Serializable {
         this.msg = CommonErrorEnum.INTERNAL_SERVER_ERROR.getValue();
         return this;
     }
+    public Result<T> error(CommonErrorEnum errorEnum) {
+        this.code = errorEnum.getKey();
+        this.msg = errorEnum.getValue();
+        return this;
+    }
 
     public Result<T> error(int code) {
         this.code = code;

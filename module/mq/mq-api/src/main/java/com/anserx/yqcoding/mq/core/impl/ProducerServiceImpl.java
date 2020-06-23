@@ -1,6 +1,7 @@
 package com.anserx.yqcoding.mq.core.impl;
 
 import cn.hutool.json.JSONUtil;
+import com.anserx.yqcoding.common.exception.BusinessException;
 import com.anserx.yqcoding.mq.MqConstant;
 import com.anserx.yqcoding.mq.bean.BaseMessage;
 import com.anserx.yqcoding.mq.bean.QueueDefinition;
@@ -19,8 +20,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -55,7 +54,7 @@ public class ProducerServiceImpl<D>implements ProducerService<D> {
         boolean exits = producerLogService.exits(params);
         if (exits){
             log.error("队列：{} 消息ID:{} 消息重复发送",definition.getQueue(),dto.getMessageId());
-            return;
+            throw new BusinessException("队列："+definition.getQueue()+"消息ID:"+dto.getMessageId()+"消息重复发送");
         }
 
         ProducerLogDto log = new ProducerLogDto()

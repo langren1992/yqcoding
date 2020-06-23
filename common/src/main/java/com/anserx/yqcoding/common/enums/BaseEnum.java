@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.common.util;
+package com.anserx.yqcoding.common.enums;
 
 /**
  *

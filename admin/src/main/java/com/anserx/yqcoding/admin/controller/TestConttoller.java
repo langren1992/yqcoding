@@ -18,9 +18,9 @@ public class TestConttoller {
 
 
     @GetMapping("/testGet/{id}")
-    public String testGet(@PathVariable("id") String id){
+    public Long testGet(@PathVariable("id") String id){
         testProducer.send(id);
-        return "111111";
+        return 111111111111111111L;
     }
 
     @GetMapping(value = "/test/desensitization")
