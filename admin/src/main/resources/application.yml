@@ -13,7 +13,6 @@ mybatis-plus:
 # 队列定义
 yqcoding.mq:
   definitions:
-    - com.anserx.yqcoding.mq.enums.QueueDefinition1Enum
     - com.anserx.yqcoding.mq.enums.QueueDefinitionEnum
 logging:
   level:

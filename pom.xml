@@ -64,6 +64,16 @@
                 <version>${yqcoding.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.anserx.yqcoding</groupId>
+                <artifactId>oauth-server</artifactId>
+                <version>${yqcoding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.anserx.yqcoding</groupId>
+                <artifactId>oauth-api</artifactId>
+                <version>${yqcoding.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>28.2-jre</version>

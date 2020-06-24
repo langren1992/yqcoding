@@ -34,5 +34,10 @@
             <groupId>com.anserx.yqcoding</groupId>
             <artifactId>mq-server</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.anserx.yqcoding</groupId>
+            <artifactId>oauth-server</artifactId>
+            <version>${yqcoding.version}</version>
+        </dependency>
     </dependencies>
 </project>

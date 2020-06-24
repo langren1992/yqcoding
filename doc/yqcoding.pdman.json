@@ -314,6 +314,426 @@
         "edges": []
       },
       "associations": []
+    },
+    {
+      "name": "oauth",
+      "chnname": "权限管理",
+      "entities": [
+        {
+          "title": "oauth_user",
+          "fields": [
+            {
+              "name": "id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "ID",
+              "pk": true,
+              "notNull": true
+            },
+            {
+              "name": "username",
+              "type": "shortName",
+              "remark": "",
+              "chnname": "用户名",
+              "notNull": true
+            },
+            {
+              "name": "name",
+              "type": "name",
+              "remark": "",
+              "chnname": "姓名"
+            },
+            {
+              "name": "password",
+              "type": "longName",
+              "remark": "",
+              "chnname": "密码",
+              "notNull": true
+            },
+            {
+              "name": "mobile_phone",
+              "type": "shortName",
+              "remark": "",
+              "chnname": "移动电话",
+              "notNull": true
+            },
+            {
+              "name": "creator",
+              "type": "ID",
+              "remark": "",
+              "chnname": "创建人",
+              "notNull": true
+            },
+            {
+              "name": "create_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "创建时间",
+              "notNull": true
+            },
+            {
+              "name": "modifier",
+              "type": "ID",
+              "remark": "",
+              "chnname": "修改人",
+              "notNull": true
+            },
+            {
+              "name": "modify_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "修改时间",
+              "notNull": true
+            },
+            {
+              "name": "status",
+              "type": "type",
+              "remark": "",
+              "chnname": "状态",
+              "notNull": true
+            },
+            {
+              "name": "version",
+              "type": "QtyOrLenght",
+              "remark": "",
+              "chnname": "版本号",
+              "notNull": true
+            },
+            {
+              "name": "deleted",
+              "type": "yesOrNo",
+              "remark": "",
+              "chnname": "逻辑删除",
+              "notNull": true,
+              "defaultValue": "0"
+            },
+            {
+              "name": "org_id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "公司ID",
+              "notNull": true
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "用户信息"
+        },
+        {
+          "title": "oauth_role",
+          "fields": [
+            {
+              "name": "id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "ID",
+              "pk": true,
+              "notNull": true
+            },
+            {
+              "name": "code",
+              "type": "shortName",
+              "remark": "",
+              "chnname": "编码",
+              "notNull": true
+            },
+            {
+              "name": "name",
+              "type": "name",
+              "remark": "",
+              "chnname": "名称",
+              "notNull": true
+            },
+            {
+              "name": "creator",
+              "type": "ID",
+              "remark": "",
+              "chnname": "创建人",
+              "notNull": true
+            },
+            {
+              "name": "create_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "创建时间",
+              "notNull": true
+            },
+            {
+              "name": "modifier",
+              "type": "ID",
+              "remark": "",
+              "chnname": "修改人",
+              "notNull": true
+            },
+            {
+              "name": "modify_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "修改时间",
+              "notNull": true
+            },
+            {
+              "name": "status",
+              "type": "type",
+              "remark": "",
+              "chnname": "状态",
+              "notNull": true
+            },
+            {
+              "name": "version",
+              "type": "QtyOrLenght",
+              "remark": "",
+              "chnname": "版本号",
+              "notNull": true
+            },
+            {
+              "name": "deleted",
+              "type": "yesOrNo",
+              "remark": "",
+              "chnname": "逻辑删除",
+              "notNull": true,
+              "defaultValue": "0"
+            },
+            {
+              "name": "org_id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "公司ID",
+              "notNull": true
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "角色信息"
+        },
+        {
+          "title": "oauth_user_role",
+          "fields": [
+            {
+              "name": "id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "ID",
+              "pk": true,
+              "notNull": true
+            },
+            {
+              "name": "user_id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "用户ID",
+              "notNull": true
+            },
+            {
+              "name": "role_id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "角色ID",
+              "notNull": true
+            },
+            {
+              "name": "creator",
+              "type": "ID",
+              "remark": "",
+              "chnname": "创建人",
+              "notNull": true
+            },
+            {
+              "name": "create_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "创建时间",
+              "notNull": true
+            },
+            {
+              "name": "modifier",
+              "type": "ID",
+              "remark": "",
+              "chnname": "修改人",
+              "notNull": true
+            },
+            {
+              "name": "modify_time",
+              "type": "datatime",
+              "remark": "",
+              "chnname": "修改时间",
+              "notNull": true
+            },
+            {
+              "name": "status",
+              "type": "type",
+              "remark": "",
+              "chnname": "状态",
+              "notNull": true
+            },
+            {
+              "name": "version",
+              "type": "QtyOrLenght",
+              "remark": "",
+              "chnname": "版本号",
+              "notNull": true
+            },
+            {
+              "name": "deleted",
+              "type": "yesOrNo",
+              "remark": "",
+              "chnname": "逻辑删除",
+              "notNull": true,
+              "defaultValue": "0"
+            },
+            {
+              "name": "org_id",
+              "type": "ID",
+              "remark": "",
+              "chnname": "公司ID",
+              "notNull": true
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "用户角色信息"
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [],
+        "edges": []
+      },
+      "associations": []
     }
   ],
   "dataTypeDomains": {
@@ -364,20 +784,29 @@
         }
       },
       {
-        "name": "文本",
-        "code": "text",
-        "apply": {
-          "MYSQL": {
-            "type": "text"
-          }
-        }
-      },
-      {
         "name": "备注/说明",
         "code": "remark",
         "apply": {
           "MYSQL": {
             "type": "varchar(512)"
+          }
+        }
+      },
+      {
+        "name": "长名称",
+        "code": "longName",
+        "apply": {
+          "MYSQL": {
+            "type": "varchar(128)"
+          }
+        }
+      },
+      {
+        "name": "文本",
+        "code": "text",
+        "apply": {
+          "MYSQL": {
+            "type": "text"
           }
         }
       },
@@ -414,15 +843,6 @@
         "apply": {
           "MYSQL": {
             "type": "int unsigned"
-          }
-        }
-      },
-      {
-        "name": "长名称",
-        "code": "longName",
-        "apply": {
-          "MYSQL": {
-            "type": "varchar(128)"
           }
         }
       },
