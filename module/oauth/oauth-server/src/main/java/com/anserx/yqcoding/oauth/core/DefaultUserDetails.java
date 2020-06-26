@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.oauth.config;
+package com.anserx.yqcoding.oauth.core;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

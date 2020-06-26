@@ -2,7 +2,6 @@ package com.anserx.yqcoding.common.exception;
 
 import com.anserx.yqcoding.common.enums.CommonErrorEnum;
 import com.anserx.yqcoding.common.util.Result;
-import com.google.common.base.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.boot.web.servlet.error.ErrorController;

@@ -1,4 +1,4 @@
-package com.anserx.yqcoding.oauth.config;
+package com.anserx.yqcoding.oauth.core;
 
 import com.anserx.yqcoding.common.util.ObjectUtils;
 import com.anserx.yqcoding.oauth.dto.UserDto;
