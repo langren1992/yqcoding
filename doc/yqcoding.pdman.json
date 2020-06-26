@@ -408,7 +408,7 @@
               "defaultValue": "0"
             },
             {
-              "name": "org_id",
+              "name": "company_id",
               "type": "ID",
               "remark": "",
               "chnname": "公司ID",
@@ -540,7 +540,7 @@
               "defaultValue": "0"
             },
             {
-              "name": "org_id",
+              "name": "company_id",
               "type": "ID",
               "remark": "",
               "chnname": "公司ID",
@@ -672,7 +672,7 @@
               "defaultValue": "0"
             },
             {
-              "name": "org_id",
+              "name": "company_id",
               "type": "ID",
               "remark": "",
               "chnname": "公司ID",
@@ -995,7 +995,7 @@
         "defaultValue": "0"
       },
       {
-        "name": "org_id",
+        "name": "company_id",
         "type": "ID",
         "remark": "",
         "chnname": "公司ID",

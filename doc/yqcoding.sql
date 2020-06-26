@@ -150,7 +150,7 @@ CREATE TABLE `oauth_role`  (
   `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态',
   `version` int(10) UNSIGNED NOT NULL COMMENT '版本号',
   `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '逻辑删除',
-  `org_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
+  `company_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色信息 ' ROW_FORMAT = Dynamic;
 
@@ -171,7 +171,7 @@ CREATE TABLE `oauth_user`  (
   `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态',
   `version` int(10) UNSIGNED NOT NULL COMMENT '版本号',
   `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '逻辑删除',
-  `org_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
+  `company_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户信息 ' ROW_FORMAT = Dynamic;
 
@@ -195,7 +195,7 @@ CREATE TABLE `oauth_user_role`  (
   `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态',
   `version` int(10) UNSIGNED NOT NULL COMMENT '版本号',
   `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '逻辑删除',
-  `org_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
+  `company_id` bigint(20) UNSIGNED NOT NULL COMMENT '公司ID',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户角色信息 ' ROW_FORMAT = Dynamic;
 

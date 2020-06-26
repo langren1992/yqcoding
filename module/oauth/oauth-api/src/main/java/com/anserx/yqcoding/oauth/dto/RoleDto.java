@@ -69,7 +69,7 @@ public class RoleDto implements Serializable {
     /**
      * 公司ID
      */
-    private Long orgId;
+    private Long companyId;
 
     public static final String ID = "id";
 
@@ -89,6 +89,6 @@ public class RoleDto implements Serializable {
 
     public static final String DELETED = "deleted";
 
-    public static final String ORG_ID = "org_id";
+    public static final String COMPANY_ID = "company_id";
 
 }

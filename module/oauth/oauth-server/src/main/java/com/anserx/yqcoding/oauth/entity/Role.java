@@ -64,7 +64,7 @@ public class Role extends LogEntity{
     /**
      * 公司ID
      */
-    private Long orgId;
+    private Long companyId;
 
     public static final String CODE = "code";
 
@@ -82,6 +82,6 @@ public class Role extends LogEntity{
 
     public static final String DELETED = "deleted";
 
-    public static final String ORG_ID = "org_id";
+    public static final String COMPANY_ID = "company_id";
 
 }

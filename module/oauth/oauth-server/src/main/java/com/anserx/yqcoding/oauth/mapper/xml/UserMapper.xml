@@ -16,6 +16,6 @@
         <result column="status" property="status" />
         <result column="version" property="version" />
         <result column="deleted" property="deleted" />
-        <result column="org_id" property="orgId" />
+        <result column="company_id" property="companyId" />
     </resultMap>
 </mapper>
