@@ -55,10 +55,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http
-            .requestMatchers().antMatchers("/oauth/**","/login/**","/logout/**")
+            .requestMatchers().antMatchers(
+                "/oauth/authorize", "/oauth/token","/oauth/check_token","/oauth/confirm_access","/oauth/error",
+                            "/login/**", "/logout/**"
+        )
             .and()
             .authorizeRequests()
-            .antMatchers("/oauth/**").authenticated()
+            .antMatchers("/oauth/authorize", "/oauth/token","/oauth/check_token","/oauth/confirm_access","/oauth/error").authenticated()
             .and()
             .formLogin()
             .permitAll(); //新增login form支持用户登录及授权

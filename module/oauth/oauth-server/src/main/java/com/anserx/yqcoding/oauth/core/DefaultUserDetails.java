@@ -23,7 +23,6 @@ public class DefaultUserDetails extends User {
 
     private String companyName;
 
-
     public DefaultUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }

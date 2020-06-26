@@ -42,6 +42,10 @@ public class DefaultUserService implements UserDetailsService {
         if (EnableOrDisableEnum.DISABLE.getKey().equals(Integer.parseInt(userDto.getStatus()))){
             throw new UsernameNotFoundException("账户已停用");
         }
-        return new DefaultUserDetails(userDto.getUsername(),userDto.getPassword(),true,false,false,false, Lists.newArrayList());
+        DefaultUserDetails userDetails = new DefaultUserDetails(userDto.getUsername(), userDto.getPassword(), true, true, true, true, Lists.newArrayList());
+        userDetails.setRealName(userDto.getName());
+        userDetails.setCompanyId(userDto.getCompanyId());
+        userDetails.setCompanyName("yqcoding");
+        return userDetails;
     }
 }
