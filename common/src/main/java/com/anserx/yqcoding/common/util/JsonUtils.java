@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Map;
 
 /**
@@ -55,5 +57,12 @@ public class JsonUtils {
      */
     public static String toJsonString(Map map) throws Exception {
         return objectMapper.writeValueAsString(map);
+    }
+
+    /**
+     * outputStream 输出
+     */
+    public static void writeValue(OutputStream out,Object object) throws Exception {
+        objectMapper.writeValue(out, object);
     }
 }

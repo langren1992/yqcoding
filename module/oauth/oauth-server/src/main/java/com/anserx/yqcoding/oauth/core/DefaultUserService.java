@@ -1,5 +1,6 @@
 package com.anserx.yqcoding.oauth.core;
 
+import com.anserx.yqcoding.common.enums.EnableOrDisableEnum;
 import com.anserx.yqcoding.common.util.ObjectUtils;
 import com.anserx.yqcoding.oauth.dto.UserDto;
 import com.anserx.yqcoding.oauth.service.UserService;
@@ -36,8 +37,11 @@ public class DefaultUserService implements UserDetailsService {
         usernameParam.put(UserDto.USERNAME,username);
         UserDto userDto = userService.get(usernameParam);
         if (ObjectUtils.isNull(userDto)){
-
+            throw new UsernameNotFoundException("用户名不存在");
         }
-        return new DefaultUserDetails(userDto.getUsername(),userDto.getPassword(), Lists.newArrayList());
+        if (EnableOrDisableEnum.DISABLE.getKey().equals(Integer.parseInt(userDto.getStatus()))){
+            throw new UsernameNotFoundException("账户已停用");
+        }
+        return new DefaultUserDetails(userDto.getUsername(),userDto.getPassword(),true,false,false,false, Lists.newArrayList());
     }
 }

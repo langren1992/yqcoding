@@ -1,11 +1,16 @@
 package com.anserx.yqcoding.oauth.error;
 
+import com.anserx.yqcoding.common.util.DateUtils;
+import com.anserx.yqcoding.common.util.ExceptionUtils;
 import com.anserx.yqcoding.oauth.error.DefaultOAuth2Exception;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
@@ -17,6 +22,7 @@ import java.util.Map;
  * @datetime 2020-06-25 22:58
  * @version 1.0
  **/
+@Slf4j
 public class DefaultOAuth2ExceptionSerializer extends StdSerializer<DefaultOAuth2Exception> {
 
     protected DefaultOAuth2ExceptionSerializer() {
@@ -25,9 +31,13 @@ public class DefaultOAuth2ExceptionSerializer extends StdSerializer<DefaultOAuth
 
     @Override
     public void serialize(DefaultOAuth2Exception value, JsonGenerator gen, SerializerProvider provider) throws IOException {
+        log.error("异常：{}", ExceptionUtils.getStackTrace(value.fillInStackTrace()));
         gen.writeStartObject();
         gen.writeObjectField("code", value.getHttpErrorCode());
+        gen.writeObjectField("date", null);
+        gen.writeStringField("dateTime", LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateUtils.DATE_TIME_PATTERN)));
         gen.writeStringField("msg", value.getMessage());
+        gen.writeStringField("path", "");
         if (value.getAdditionalInformation()!=null) {
             for (Map.Entry<String, String> entry : value.getAdditionalInformation().entrySet()) {
                 String key = entry.getKey();

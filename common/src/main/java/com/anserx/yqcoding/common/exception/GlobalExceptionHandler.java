@@ -1,6 +1,5 @@
 package com.anserx.yqcoding.common.exception;
 
-import com.anserx.yqcoding.common.enums.CommonErrorEnum;
 import com.anserx.yqcoding.common.util.ExceptionUtils;
 import com.anserx.yqcoding.common.util.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -25,15 +25,15 @@ public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(NullPointerException.class)
-    public Result<String> nullPointerException(HttpServletResponse response, NullPointerException ex){
+    public Result<String> nullPointerException(HttpServletRequest request, HttpServletResponse response, NullPointerException ex){
         log.error("空指针异常：{}", ExceptionUtils.getStackTrace(ex.fillInStackTrace()));
-        return new Result<String>().error(CommonErrorEnum.INTERNAL_SERVER_ERROR.getKey()+":异常编号:"+System.nanoTime());
+        return new Result<String>().error("空指针异常",request.getServletPath());
     }
 
     @ResponseBody
     @ExceptionHandler(BusinessException.class)
-    public Result<String> businessException(HttpServletResponse response, BusinessException ex){
+    public Result<String> businessException(HttpServletRequest request,HttpServletResponse response, BusinessException ex){
         log.error("业务异常：{}", ExceptionUtils.getStackTrace(ex.fillInStackTrace()));
-        return new Result<String>().error(ex.getMessage());
+        return new Result<String>().error("业务异常",request.getServletPath());
     }
 }

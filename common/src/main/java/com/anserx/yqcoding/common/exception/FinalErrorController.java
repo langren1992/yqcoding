@@ -5,11 +5,8 @@ import com.anserx.yqcoding.common.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,15 +28,13 @@ public class FinalErrorController implements ErrorController {
     }
 
     @GetMapping(value = "/error")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     public Result<String> error(HttpServletRequest request, HttpServletResponse response) {
-        log.error("response error,httpCode:" + response.getStatus());
-        int status = response.getStatus();
-        CommonErrorEnum resolve = CommonErrorEnum.resolve(status);
+        CommonErrorEnum resolve = CommonErrorEnum.resolve(response.getStatus());
+        log.error("异常编码：{}，异常描述：{}",resolve.getKey(),resolve.getValue());
         if (ObjectUtils.anyNotNull(resolve)){
-            return new Result<String>().error(resolve);
+            return new Result<String>().error(resolve,request.getServletPath());
         } else {
-            return new Result<String>().error();
+            return new Result<String>().error(request.getServletPath());
         }
     }
 }

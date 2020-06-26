@@ -1,34 +1,25 @@
 package com.anserx.yqcoding.oauth.error;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.anserx.yqcoding.common.enums.CommonErrorEnum;
+import com.anserx.yqcoding.common.util.JsonUtils;
+import com.anserx.yqcoding.common.util.Result;
+import lombok.SneakyThrows;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 @Primary
 public class DefaultAuthenticationEntryPoint implements AuthenticationEntryPoint {
+    @SneakyThrows
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
-                         AuthenticationException authException)
-        throws  ServletException {
-        Map map = new HashMap();
-        map.put("code", "401");
-        map.put("msg", authException.getMessage());
+                         AuthenticationException authException) {
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(response.getOutputStream(), map);
-        } catch (Exception e) {
-            throw new ServletException();
-        }
+        JsonUtils.writeValue(response.getOutputStream(),new Result<String>().error(CommonErrorEnum.UNAUTHORIZED,request.getServletPath()));
     }
 }
