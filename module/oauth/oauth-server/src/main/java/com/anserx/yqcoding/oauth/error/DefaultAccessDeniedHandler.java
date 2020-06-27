@@ -17,7 +17,6 @@ public class DefaultAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException){
         response.setContentType("application/json;charset=UTF-8");
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.getWriter().write(JsonUtils.toJsonString(new Result<String>().error(CommonErrorEnum.UNAUTHORIZED,request.getServletPath())));
     }
 }

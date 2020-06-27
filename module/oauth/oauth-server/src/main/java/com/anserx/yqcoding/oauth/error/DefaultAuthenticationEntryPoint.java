@@ -19,7 +19,6 @@ public class DefaultAuthenticationEntryPoint implements AuthenticationEntryPoint
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) {
         response.setContentType("application/json");
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         JsonUtils.writeValue(response.getOutputStream(),new Result<String>().error(CommonErrorEnum.UNAUTHORIZED,request.getServletPath()));
     }
 }

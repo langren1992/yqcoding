@@ -38,7 +38,11 @@ public enum CommonErrorEnum implements BaseEnum<Integer,String> {
     /**
      * 500
      */
-    INTERNAL_SERVER_ERROR(500, "服务异常")
+    INTERNAL_SERVER_ERROR(500, "服务异常"),
+    /**
+     * 501
+     */
+    KACPCHAR_ERROR(501, "验证码异常")
     ;
 
 

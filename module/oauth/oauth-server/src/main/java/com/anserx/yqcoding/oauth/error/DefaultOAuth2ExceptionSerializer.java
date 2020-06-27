@@ -1,5 +1,6 @@
 package com.anserx.yqcoding.oauth.error;
 
+import com.anserx.yqcoding.common.enums.CommonErrorEnum;
 import com.anserx.yqcoding.common.util.DateUtils;
 import com.anserx.yqcoding.common.util.ExceptionUtils;
 import com.anserx.yqcoding.oauth.error.DefaultOAuth2Exception;
@@ -33,10 +34,16 @@ public class DefaultOAuth2ExceptionSerializer extends StdSerializer<DefaultOAuth
     public void serialize(DefaultOAuth2Exception value, JsonGenerator gen, SerializerProvider provider) throws IOException {
         log.error("异常：{}", ExceptionUtils.getStackTrace(value.fillInStackTrace()));
         gen.writeStartObject();
+        String message = "";
+        if (CommonErrorEnum.BED_REQUEST.getKey().equals(value.getHttpErrorCode())){
+            message = "密码错误";
+        } else {
+            message = value.getMessage();
+        }
         gen.writeObjectField("code", value.getHttpErrorCode());
         gen.writeObjectField("date", null);
         gen.writeStringField("dateTime", LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateUtils.DATE_TIME_PATTERN)));
-        gen.writeStringField("msg", value.getMessage());
+        gen.writeStringField("msg", message);
         gen.writeStringField("path", "");
         if (value.getAdditionalInformation()!=null) {
             for (Map.Entry<String, String> entry : value.getAdditionalInformation().entrySet()) {

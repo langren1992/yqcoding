@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .requestMatchers().antMatchers(
                 "/oauth/authorize", "/oauth/token","/oauth/check_token","/oauth/confirm_access","/oauth/error",
-                            "/login/**", "/logout/**"
+                            "/login/**", "/logout/**","/createKaptcha"
         )
             .and()
             .authorizeRequests()

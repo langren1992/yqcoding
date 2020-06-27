@@ -1,6 +1,8 @@
 package com.anserx.yqcoding.oauth.config;
 
 import com.anserx.yqcoding.oauth.error.DefaultAccessDeniedHandler;
+import com.anserx.yqcoding.oauth.filter.KaptchaFailureHandler;
+import com.anserx.yqcoding.oauth.filter.KaptchaFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -9,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * 
@@ -31,6 +34,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Autowired
+    private KaptchaFailureHandler kaptchaFailureHandler;
+
+    @Autowired
     private DefaultAccessDeniedHandler defaultAccessDeniedHandler;
 
     @Autowired
@@ -38,12 +44,17 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable(); //禁用了 csrf 功能
-        http.authorizeRequests()//限定签名成功的请求
-            .anyRequest().permitAll()//其他没有限定的请求，允许访问
+        KaptchaFilter validateCodeFilter = new KaptchaFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(kaptchaFailureHandler);
+        //限定签名成功的请求
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+            .authorizeRequests()
+            //其他没有限定的请求，允许访问
+            .antMatchers("/createKaptcha").permitAll()
             .and().anonymous()//对于没有配置权限的其他请求允许匿名访问
             .and().formLogin()//使用 spring security 默认登录页面
-            .and().httpBasic();//启用http 基础验证
+//            .successHandler(defaultAuthenticationSuccessHandler)
+            .and().httpBasic().and().csrf().disable();//启用http 基础验证
 
     }
 

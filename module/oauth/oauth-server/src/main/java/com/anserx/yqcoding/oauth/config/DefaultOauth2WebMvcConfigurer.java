@@ -18,6 +18,6 @@ public class DefaultOauth2WebMvcConfigurer implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(defaultHandlerInterceptor())
             // 排除指定连接不做拦截
-            .excludePathPatterns("/auth/**" );
+            .excludePathPatterns("/auth/**","/createKaptcha");
     }
 }

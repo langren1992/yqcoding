@@ -74,7 +74,7 @@ public class DefaultWebResponseExceptionTranslator implements WebResponseExcepti
         String message=e.getMessage();
         DefaultOAuth2Exception exception = new DefaultOAuth2Exception(message,e);
 
-        ResponseEntity<OAuth2Exception> response = new ResponseEntity<OAuth2Exception>(exception, headers, HttpStatus.valueOf(status));
+        ResponseEntity<OAuth2Exception> response = new ResponseEntity<OAuth2Exception>(exception, headers, HttpStatus.OK);
 
         return response;
 
