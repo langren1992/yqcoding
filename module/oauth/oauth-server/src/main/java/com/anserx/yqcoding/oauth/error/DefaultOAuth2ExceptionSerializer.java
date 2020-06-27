@@ -35,7 +35,7 @@ public class DefaultOAuth2ExceptionSerializer extends StdSerializer<DefaultOAuth
         log.error("异常：{}", ExceptionUtils.getStackTrace(value.fillInStackTrace()));
         gen.writeStartObject();
         String message = "";
-        if (CommonErrorEnum.BED_REQUEST.getKey().equals(value.getHttpErrorCode())){
+        if ("Bad credentials".equalsIgnoreCase(value.getMessage())){
             message = "密码错误";
         } else {
             message = value.getMessage();
